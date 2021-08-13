@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "54ed6cee-c111-47af-a777-d27245615190",
+		"name": "demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"fullname\": \"hiren joshi\",\n    \"email\":\"hirenjoshi0@gmail.com\",\n    \"mobile\":8460777809,\n    \"countryCode\":\"91\",\n    \"otp\":443898\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullname\": \"hiren joshi\",\n    \"email\":\"hirenjoshi0@gmail.com\",\n    \"mobile\":8460777809,\n    \"countryCode\":\"91\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"hirenjoshi0@gmail.com\",\n    \"mobile\":8460777809,\n    \"countryCode\":\"91\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "varifyOtp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\":\"520476\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/varifyOtp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"varifyOtp"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+    "connectionString": "mongodb+srv://DawnToDusk:DawnToDusk@dawntodusk.niel2.mongodb.net/DawnToDusk",
+    "secret": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "email":"",
+    "password":"",
+    "host":"p3plzcpnl472103.prod.phx3.secureserver.net",
+    "port":"465",
+    "email-1":"hiren.joshi@uticome.com",
+    "password-1":"Utico@1234!",
+    "host-1":"mail.live.com",
+    "port-1":"587",
+    "jwtSecret":"myTotalySecretKey",
+    "api_key": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1"
+}
