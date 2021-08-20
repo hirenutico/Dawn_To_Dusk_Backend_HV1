@@ -12,6 +12,7 @@ app.use(cors());
 app.use(jwt());
 
 app.use('/api/user' ,require('./src/Auth/AuthController'))
+
 // global error handler
                                                                                                                                                   
 app.use(errorHandler);
@@ -23,3 +24,6 @@ const server = app.listen(port, function () {
     console.log(`Server listening on Server: ${serverDomain} and port ${port}`);
 });
 
+// Web Interface                 http://127.0.0.1:4040                                              
+// Forwarding                    http://7735a6d924bb.ngrok.io -> http://localhost:5000              
+// Forwarding                    https://7735a6d924bb.ngrok.io -> http://localhost:5000    
