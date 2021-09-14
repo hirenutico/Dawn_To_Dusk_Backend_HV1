@@ -1,9 +1,9 @@
 
 function setResData(status,code ,data ,message){
     const res = {
-        Status:status,
-        Code:code,
-        Data:data,
+        status:status,
+        code:code,
+        data:data,
         message:message
     }
     return res

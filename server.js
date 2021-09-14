@@ -19,7 +19,7 @@ app.use(errorHandler);
 
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) :  5000;
 const serverDomain = '10.12.12.156';
-app.listen(port, serverDomain);
+// app.listen(port, serverDomain);
 const server = app.listen(port, function () {
     console.log(`Server listening on Server: ${serverDomain} and port ${port}`);
 });

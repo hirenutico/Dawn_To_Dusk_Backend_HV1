@@ -9,7 +9,8 @@ const { setResData }= require('../../_helper/comman')
 var rn = require("random-number");
 
 const userLogin = async (userParams) => {
-  const user = await dbUser.find({ email: userParams.email , mobile: userParams.mobile});
+  // const user = await dbUser.find({ email: userParams.email , mobile: userParams.mobile});
+  const user = await dbUser.find({ mobile: userParams.mobile});
   if (user.length === 1) {
     var gen = rn.generator({
       min: 111111,
