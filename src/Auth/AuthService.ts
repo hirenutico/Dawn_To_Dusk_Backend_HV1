@@ -126,6 +126,7 @@ const VerifyOTP =async(userParams)=>{
      }
   }
 }
+
 module.exports = {
   authenticate,
   userRegister,

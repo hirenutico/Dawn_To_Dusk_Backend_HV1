@@ -5,11 +5,11 @@ function jwt() {
     const secret = config.secret;
     return expressJwt({ secret }).unless({
         path: [
-            // public routes that don't require authentication
             '/api/user/register',
             '/api/user/authenticate',
             '/api/user/varifyOtp',
             '/api/user/login',
+            '/api/menu/addproduct',
             new RegExp('/resources.*/', 'i')           
         ]
     });

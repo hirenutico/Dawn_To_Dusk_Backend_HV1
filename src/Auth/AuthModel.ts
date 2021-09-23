@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    fullname: { type: String,  required: true },
-    email: { type: String, unique: true, required: false },
-    mobile: { type: String, unique: true, required: true },
-    countryCode: { type: String, required: true },
-    otp_token: { type: Number },
-    verify_otp: { type: Boolean, default: false}
+    fullname: {type: String,  required: true},
+    email: {type: String, unique: true, required: true},
+    mobile: {type: String, unique: true, required: true},
+    countryCode: {type: String, required: true},
+    otp_token: {type: Number},
+    verify_otp: {type: Boolean, default: false},
 });
 
 schema.set('toJSON', { virtuals: true });

@@ -148,6 +148,42 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"foodname\": \"prasanna\", \"categoryname\": \"Order\", \"subcategoryname\": \"Eggs\", \"vegnonveg\": \"Veg\", \"foodquantity\": 1, \"price\": 200, \"desc\": \"fsajhflkjsdhafjhsdakfhdlsak\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
