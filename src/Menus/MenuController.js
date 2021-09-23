@@ -3,6 +3,7 @@ const router = express.Router();
 const MenuService = require('./MenuService.js');
 const {checkMobileAuth} = require('../../middlewares/auth')
 router.post('/addproduct', checkMobileAuth, addproduct)
+router.get('/getproduct', checkMobileAuth, getproduct)
 module.exports = router;
 
 function addproduct(req, res, next){
@@ -11,6 +12,13 @@ function addproduct(req, res, next){
     }
     console.log(`Server listening on port ${req.body}`);
     MenuService.addproduct(req.body)
+    .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Data is incorrect' }))
+    .catch(err => next(err));
+}
+
+function getproduct(req, res, next){
+    console.log(`Server listening on port ${req.body}`);
+    MenuService.getproduct(req.body)
     .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Data is incorrect' }))
     .catch(err => next(err));
 }

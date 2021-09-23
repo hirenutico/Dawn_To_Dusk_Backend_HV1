@@ -16,6 +16,15 @@ const addproduct = async (userParams) => {
   }
 };
 
+const getproduct = async (userParams) => {
+  const data = await dbUser.find({ });
+  if (data.length === 1) {
+    
+  } else {
+    return setResData(false, 401, null , "email is not registerd yet!")
+  }
+};
+
 module.exports = {
     addproduct
 };

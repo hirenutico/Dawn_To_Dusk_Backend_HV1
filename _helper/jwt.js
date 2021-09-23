@@ -10,6 +10,7 @@ function jwt() {
             '/api/user/varifyOtp',
             '/api/user/login',
             '/api/menu/addproduct',
+            '/api/menu/getproduct',
             new RegExp('/resources.*/', 'i')           
         ]
     });
