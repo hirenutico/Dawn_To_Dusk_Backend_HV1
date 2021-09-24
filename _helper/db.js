@@ -5,5 +5,5 @@ mongoose.Promise = global.Promise;
 mongoose.set('useFindAndModify', false);
 module.exports = {   
     User : require('../src/Auth/AuthModel.ts'),
-    Menu : require('../src/Menus/MenuModels.ts'),
+    Menu : require('../src/Menus/MenuModels.js'),
 }

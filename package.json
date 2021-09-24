@@ -23,6 +23,7 @@
     "express-jwt": "^5.3.1",
     "grammarbot": "^1.0.2",
     "handlebars": "^4.4.2",
+    "http": "0.0.1-security",
     "https": "^1.0.0",
     "js-sha512": "^0.8.0",
     "jwt-decode": "^2.2.0",
@@ -37,7 +38,17 @@
     "request": "^2.88.0",
     "response": "^0.18.0",
     "rootpath": "^0.1.2",
+    "save": "^2.4.0",
     "sinon": "^7.5.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshihiren/Dawn_To_Dusk_Backend.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/joshihiren/Dawn_To_Dusk_Backend/issues"
+  },
+  "homepage": "https://github.com/joshihiren/Dawn_To_Dusk_Backend#readme"
 }

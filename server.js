@@ -16,11 +16,12 @@ app.use('/api/menu' ,require('./src/Menus/MenuController'))
 // global error handler
                                                                                                                                                   
 app.use(errorHandler);
+app.use(cors())
 
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) :  5000;
 const serverDomain = '10.12.12.156';
 // app.listen(port, serverDomain);
 const server = app.listen(port, function () {
-    console.log(`Server listening on Server: ${serverDomain} and port ${port}`);
-    // console.log(`Server listening on port ${port}`);
+    // console.log(`Server listening on Server: ${serverDomain} and port ${port}`);
+    console.log(`Server listening on port ${port}`);
 }); 

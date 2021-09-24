@@ -18,9 +18,12 @@ const userLogin = async (userParams) => {
       integer: true,
     });
     const random = gen();
+
     var html =`otp is `+random.toString();
-    let sendResult = mail.sendDynamicMail(userParams.email, "test", html);
+    var phoneNo = userParams.countrycode + userParams.mobile
+    let sendResult = mail.sendDynamicMail(phoneNo, "test", html);
     userParams.otp_token = random
+
     if (sendResult) {
       
       const findupdate = await dbUser.findByIdAndUpdate({
@@ -37,32 +40,8 @@ const userLogin = async (userParams) => {
   }
 };
 
-async function authenticate(userParams) {
-  if(!userParams.otp){
-    return setResData(false,400, null , "Otp required")
-  }
-  const user = await dbUser.find({ email: userParams.email });
-  if(user){
-    delete user[0].id
-    if(!user[0].verify_otp){
-      return setResData(false,400, null , "email is not verify")
-    }
-    if(user[0].otp_token === userParams.otp){
-      const encryptedString = cryptr.encrypt(user[0].id)
-      let token = jwt.sign({ id:encryptedString}, config.secret, { expiresIn: '1 day' });
-     const data  = {
-        user:user[0],
-        accessToken:token,
-        api_key: config.api_key
-      }
-      return setResData(false,200, data , "login success.")
-    }else{
-      return setResData(false,400, null , "invalid otp!")
-    }
-  } 
-}
 const userRegister = async (userParams) => {
-  const user = await dbUser.find({ email: userParams.email , mobile: userParams.mobile});
+  const user = await dbUser.find({mobile: userParams.mobile});
 
   var gen = rn.generator({
     min: 111111,
@@ -77,7 +56,8 @@ const userRegister = async (userParams) => {
     }, {$set: {"verify_otp":false, "fullname": userParams.fullname, "otp_token": random.toString()}})
     if(findupdate){
       var html =`otp is `+random.toString();
-      let sendResult = mail.sendDynamicMail(userParams.email, "test", html);
+      var phoneNo = userParams.countrycode + userParams.mobile
+      let sendResult = mail.sendDynamicMail(phoneNo, "test", html);
       userParams.otp_token = random
       if (sendResult) {
         return setResData(true, 200, {"otp": random.toString()} , "we otp send your register email address");
@@ -104,6 +84,7 @@ const userRegister = async (userParams) => {
       }
   }
 };
+
 const VerifyOTP =async(userParams)=>{
   const userData = await dbUser.find({ otp_token : userParams.code });
   console.log('userData', userData)
@@ -128,7 +109,6 @@ const VerifyOTP =async(userParams)=>{
 }
 
 module.exports = {
-  authenticate,
   userRegister,
   VerifyOTP ,
   userLogin

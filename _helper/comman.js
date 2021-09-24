@@ -1,5 +1,5 @@
 
-function setResData(status,code ,data ,message){
+function setResData(status, code ,data ,message){
     const res = {
         status:status,
         code:code,

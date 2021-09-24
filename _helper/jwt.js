@@ -6,7 +6,6 @@ function jwt() {
     return expressJwt({ secret }).unless({
         path: [
             '/api/user/register',
-            '/api/user/authenticate',
             '/api/user/varifyOtp',
             '/api/user/login',
             '/api/menu/addproduct',

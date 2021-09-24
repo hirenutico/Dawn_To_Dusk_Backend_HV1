@@ -1,7 +1,7 @@
-const mongooses = require('mongoose');
-const Schema2 = mongooses.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const product_schema = new Schema2({
+const product_schema = new Schema({
     foodname: {type: String, unique: false, required: true},
     categoryname: {type: String, unique: false, required: true},
     subcategoryname: {type: String, unique: false, required: true},
@@ -13,4 +13,4 @@ const product_schema = new Schema2({
 
 product_schema.set('toJSON', { virtuals: true });
 
-module.exports = mongooses.model('tbl_product', product_schema);
+module.exports = mongoose.model('tbl_product', product_schema);
