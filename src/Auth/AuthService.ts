@@ -17,12 +17,12 @@ const userLogin = async (userParams) => {
       integer: true,
     });
     const random = gen();
-
+    userParams.otp_token = random
+    
     var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
     var phoneNo = userParams.countrycode + userParams.mobile
     let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random)
-    userParams.otp_token = random
-
+  
     if (sendResult) {
       
       const findupdate = await dbUser.findByIdAndUpdate({
@@ -52,22 +52,26 @@ const userRegister = async (userParams) => {
     const findupdate = await dbUser.findByIdAndUpdate({
       '_id': user[0].id
     }, {$set: {"verify_otp":false, "fullname": userParams.fullname, "otp_token": random.toString()}})
-    if(findupdate){
 
-    var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
-    var phoneNo = userParams.countrycode + userParams.mobile
-    let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random)
+    if(findupdate) {
+      var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
+      var phoneNo = userParams.countrycode + userParams.mobile
+      let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random)
 
       userParams.otp_token = random
 
       if (sendResult) {
         return setResData(true, 200, {"otp": random.toString()} , "we otp send your register email address");
-      } else {
+      } 
+      else {
         return false;
       }
+    }
+    else {
 
     }
-  } else {
+  } 
+  else {
     var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
     var phoneNo = userParams.countrycode + userParams.mobile
     let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random)
@@ -77,10 +81,12 @@ const userRegister = async (userParams) => {
         var data = await new dbUser(userParams).save();
         if (data) {
           return setResData(true, 200, {"otp": random.toString()} , "we otp send your register email address");
-        } else {
+        } 
+        else {
           return false;
         }
-      } else {
+      } 
+      else {
         return false;
       }
   }
