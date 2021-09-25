@@ -2,14 +2,13 @@ const config = require("../../config.json");
 const jwt = require("jsonwebtoken");
 const db = require("../../_helper/db");
 const dbUser = db.User;
-const mail = require("../../_helper/email");
+const SMSGateway = require("../../_helper/SMSGateway");
 const Cryptr = require("cryptr");
 const cryptr = new Cryptr(config.jwtSecret);
 const { setResData }= require('../../_helper/comman')
 var rn = require("random-number");
 
 const userLogin = async (userParams) => {
-  // const user = await dbUser.find({ email: userParams.email , mobile: userParams.mobile});
   const user = await dbUser.find({ mobile: userParams.mobile});
   if (user.length === 1) {
     var gen = rn.generator({
@@ -19,9 +18,9 @@ const userLogin = async (userParams) => {
     });
     const random = gen();
 
-    var html =`otp is `+random.toString();
+    var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
     var phoneNo = userParams.countrycode + userParams.mobile
-    let sendResult = mail.sendDynamicMail(phoneNo, "test", html);
+    let sendResult = SMSGateway.sendDynamicOTP_client(phoneNo, "D2D User Verification", OTP_message);
     userParams.otp_token = random
 
     if (sendResult) {
@@ -31,7 +30,6 @@ const userLogin = async (userParams) => {
       }, {$set: {"verify_otp":false, "otp_token": random.toString()}})
 
       return setResData(true, 200, {"otp": random.toString()} , "we otp send your register email address");
-        // return setResData(true, 200, data , "we otp send your register email address");
     } else {
       return false;
     }
@@ -55,27 +53,30 @@ const userRegister = async (userParams) => {
       '_id': user[0].id
     }, {$set: {"verify_otp":false, "fullname": userParams.fullname, "otp_token": random.toString()}})
     if(findupdate){
-      var html =`otp is `+random.toString();
-      var phoneNo = userParams.countrycode + userParams.mobile
-      let sendResult = mail.sendDynamicMail(phoneNo, "test", html);
+
+    var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
+    var phoneNo = userParams.countrycode + userParams.mobile
+    let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random)
+
       userParams.otp_token = random
+
       if (sendResult) {
         return setResData(true, 200, {"otp": random.toString()} , "we otp send your register email address");
-          // return setResData(true, 200, data , "we otp send your register email address");
       } else {
         return false;
       }
+
     }
-    // return setResData(false,400, null , "email is already register!")
   } else {
-      var html =`otp is `+random.toString();
-      let sendResult = mail.sendDynamicMail(userParams.email, "test", html);
+    var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
+    var phoneNo = userParams.countrycode + userParams.mobile
+    let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random)
+    
       userParams.otp_token = random
       if (sendResult) {
         var data = await new dbUser(userParams).save();
         if (data) {
           return setResData(true, 200, {"otp": random.toString()} , "we otp send your register email address");
-          // return setResData(true, 200, data , "we otp send your register email address");
         } else {
           return false;
         }

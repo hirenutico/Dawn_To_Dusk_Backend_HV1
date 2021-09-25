@@ -18,7 +18,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"fullname\": \"hiren joshi\",\n    \"email\":\"hirenjoshi0@gmail.com\",\n    \"mobile\":\"8460777809\",\n    \"countryCode\":\"91\",\n    \"otp\":175337\n}",
+					"raw": "{\n   \"fullname\": \"hiren joshi\",\n    \"email\":\"hirenjoshi0@gmail.com\",\n    \"mobile\":\"8460777809\",\n    \"countrycode\":\"91\",\n    \"otp\":175337\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,7 +54,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"fullname\": \"hiren joshi\",\n    \"email\":\"hirenjoshi0@gmail.com\",\n    \"mobile\":\"8460777809\",\n    \"countryCode\":\"91\"\n}",
+					"raw": "{\n    \"fullname\": \"hiren joshi\",\n    \"email\":\"hirenjoshi0@gmail.com\",\n    \"mobile\":\"8460777809\",\n    \"countrycode\":\"91\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,7 +90,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\":\"hirenjoshi6@gmail.com\",\n    \"mobile\":\"8460777809\",\n    \"countryCode\":\"91\"\n}",
+					"raw": "{\n    \"email\":\"hirenjoshi6@gmail.com\",\n    \"mobile\":\"8460777809\",\n    \"countrycode\":\"91\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

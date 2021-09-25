@@ -6,5 +6,6 @@
     "host":"p3plzcpnl472103.prod.phx3.secureserver.net",
     "port":"465",
     "jwtSecret":"myTotalySecretKey",
-    "api_key": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1"
+    "api_key": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+    "2Factory_API_Key": "6cdaebdd-1dd6-11ec-a13b-0200cd936042"
 }

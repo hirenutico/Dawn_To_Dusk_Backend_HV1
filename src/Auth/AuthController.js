@@ -31,7 +31,13 @@ function register(req, res, next){
     if(!req.body.mobile){
         res.status(400).send({status:false,message:"Mobile number not found!"})
     }
+    if(!req.body.countrycode){
+        res.status(400).send({status:false,message:"Client countrycode not found!"})
+    }
+    if(!req.body.fullname){
+        res.status(400).send({status:false,message:"fullname not found!"})
+    }
     AuthService.userRegister(req.body)
-    .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'fullname  is incorrect' }))
+    .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Something is incorrect' }))
     .catch(err => next(err));
 }
