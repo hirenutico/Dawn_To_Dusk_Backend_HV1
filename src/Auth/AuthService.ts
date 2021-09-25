@@ -20,7 +20,7 @@ const userLogin = async (userParams) => {
 
     var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
     var phoneNo = userParams.countrycode + userParams.mobile
-    let sendResult = SMSGateway.sendDynamicOTP_client(phoneNo, "D2D User Verification", OTP_message);
+    let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random)
     userParams.otp_token = random
 
     if (sendResult) {
