@@ -13,12 +13,24 @@ function Login(req, res, next) {
     if(!req.body.mobile){
         res.status(400).send({status:false,message:"Mobile number not found!"})
     }
+    if(!req.body.countryCode){
+        res.status(400).send({status:false,message:"Client countryCode not found!"})
+    }
     AuthService.userLogin(req.body)
     .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'fullname  is incorrect' }))
     .catch(err => next(err));
 }
 
 function VarifyOtp(req, res, next){
+    if(!req.body.code){
+        res.status(400).send({status:false,message:"OTP code not found!"})
+    }
+    if(!req.body.mobile){
+        res.status(400).send({status:false,message:"Mobile number not found!"})
+    }
+    if(!req.body.countryCode){
+        res.status(400).send({status:false,message:"Client countryCode not found!"})
+    }
     AuthService.VerifyOTP(req.body)
     .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'fullname  is incorrect' }))
     .catch(err => next(err));
@@ -31,8 +43,8 @@ function register(req, res, next){
     if(!req.body.mobile){
         res.status(400).send({status:false,message:"Mobile number not found!"})
     }
-    if(!req.body.countrycode){
-        res.status(400).send({status:false,message:"Client countrycode not found!"})
+    if(!req.body.countryCode){
+        res.status(400).send({status:false,message:"Client countryCode not found!"})
     }
     if(!req.body.fullname){
         res.status(400).send({status:false,message:"fullname not found!"})

@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "description": "node mongodb grammer tools",
   "main": "index.js",
-  "scripts": {
-    "server": "nodemon server",
-    "start": "pm2 start --env production",
-    "start:socket": "cd socket && pm2 start index.js",
-    "dev": "pm2 start"
-  },
   "author": "Silverwebbuzz",
   "license": "ISC",
   "dependencies": {

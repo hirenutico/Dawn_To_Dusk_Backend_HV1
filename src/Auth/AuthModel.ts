@@ -5,7 +5,7 @@ const schema = new Schema({
     fullname: {type: String,  required: true},
     email: {type: String, unique: true, required: true},
     mobile: {type: String, unique: true, required: true},
-    countrycode: {type: String, required: true},
+    countryCode: {type: String, required: true},
     otp_token: {type: Number},
     verify_otp: {type: Boolean, default: false},
     createddate: {type: Date},

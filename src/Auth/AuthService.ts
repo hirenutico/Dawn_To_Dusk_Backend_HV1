@@ -20,8 +20,8 @@ const userLogin = async (userParams) => {
     userParams.otp_token = random
     
     var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
-    var phoneNo = userParams.countrycode + userParams.mobile
-    let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random)
+    var phoneNo = userParams.countryCode + userParams.mobile
+    let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random, OTP_message)
   
     if (sendResult) {
       
@@ -29,12 +29,12 @@ const userLogin = async (userParams) => {
         '_id': user[0].id
       }, {$set: {"verify_otp":false, "otp_token": random.toString()}})
 
-      return setResData(true, 200, {"otp": random.toString()} , "we otp send your register email address");
+      return setResData(true, 200, {"otp": random.toString()} , "D2D Send the OTP on your Register Mobile no. Pleas check it and use it for verification. -2");
     } else {
       return false;
     }
   } else {
-    return setResData(false, 401, null , "email is not registerd yet!")
+    return setResData(false, 401, null , "The Mobile no is not registerd yet!")
   }
 };
 
@@ -55,32 +55,32 @@ const userRegister = async (userParams) => {
 
     if(findupdate) {
       var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
-      var phoneNo = userParams.countrycode + userParams.mobile
-      let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random)
+      var phoneNo = userParams.countryCode + userParams.mobile
+      let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random, OTP_message)
 
       userParams.otp_token = random
 
       if (sendResult) {
-        return setResData(true, 200, {"otp": random.toString()} , "we otp send your register email address");
+        return setResData(true, 200, {"otp": random.toString()} , "D2D Send the OTP on your Register Mobile no. Pleas check it and use it for verification. -1");
       } 
       else {
         return false;
       }
     }
     else {
-
+      return setResData(false, 401, null , "The Mobile no is not registerd yet!")
     }
   } 
   else {
     var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
-    var phoneNo = userParams.countrycode + userParams.mobile
-    let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random)
+    var phoneNo = userParams.countryCode + userParams.mobile
+    let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random, OTP_message)
     
       userParams.otp_token = random
       if (sendResult) {
         var data = await new dbUser(userParams).save();
         if (data) {
-          return setResData(true, 200, {"otp": random.toString()} , "we otp send your register email address");
+          return setResData(true, 200, {"otp": random.toString()} , "D2D Send the OTP on your Register Mobile no. Pleas check it and use it for verification. -3");
         } 
         else {
           return false;
@@ -92,8 +92,8 @@ const userRegister = async (userParams) => {
   }
 };
 
-const VerifyOTP =async(userParams)=>{
-  const userData = await dbUser.find({ otp_token : userParams.code });
+const VerifyOTP = async(userParams) => {
+  const userData = await dbUser.find({ otp_token : userParams.code, mobile: userParams.mobile});
   console.log('userData', userData)
   if(userData){
     const findupdate = await dbUser.findByIdAndUpdate({
