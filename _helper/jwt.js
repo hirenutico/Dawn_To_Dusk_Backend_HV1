@@ -8,6 +8,9 @@ function jwt() {
             '/api/user/register',
             '/api/user/varifyOtp',
             '/api/user/login',
+            '/api/user/updateUser',
+            '/api/user/GetSingleUser',
+            '/api/user/GetAllUser',
             '/api/menu/addproduct',
             '/api/menu/getproduct',
             new RegExp('/resources.*/', 'i')           

@@ -115,8 +115,50 @@ const VerifyOTP = async(userParams) => {
   }
 }
 
+const updateUser = async(userParams) => {
+  const user = await dbUser.find({mobile: userParams.mobile});
+  if (user.length === 1) {
+    const findupdate = await dbUser.findByIdAndUpdate({
+      '_id': user[0].id
+    }, {$set: {"fullname": userParams.fullname, "email": userParams.email}})
+    const user2 = await dbUser.find({mobile: userParams.mobile});
+    if (user2.length === 1) {
+      return setResData(true, 200, user2 , "User profile updated successfully");
+    }
+    else {
+      return setResData(false, 401, null , "User profile updated failed due to some issue. Please try again!")
+    }
+  } 
+  else {
+    return setResData(false, 401, null , "The Mobile no is not registerd yet!")
+  }
+}
+
+const GetSingleUser = async(userParams) => {
+  const user = await dbUser.find({mobile: userParams.mobile});
+  if (user.length === 1) {
+    return setResData(true, 200, user , "User profile getted successfully");
+  } 
+  else {
+    return setResData(false, 401, null , "The Mobile no is not registerd yet!")
+  }
+}
+
+const GetAllUser = async(userParams) => {
+  const user = await dbUser.find( {} );
+  if (user.length === 1) {
+    return setResData(true, 200, user , "Find the following user info from DB");
+  } 
+  else {
+    return setResData(false, 401, null , "No user Registered yet!")
+  }
+}
+
 module.exports = {
   userRegister,
-  VerifyOTP ,
-  userLogin
+  VerifyOTP,
+  userLogin,
+  updateUser,
+  GetSingleUser,
+  GetAllUser,
 };

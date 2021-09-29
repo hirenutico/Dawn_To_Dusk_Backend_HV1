@@ -3,9 +3,12 @@ const http = require('http');
 const router = express.Router();
 const {checkMobileAuth} = require('../../middlewares/auth')
 const AuthService = require('./AuthService.ts');
-router.post('/register',checkMobileAuth, register)
-router.post('/login',checkMobileAuth, Login)
-router.post('/varifyOtp',checkMobileAuth, VarifyOtp)
+router.post('/register', checkMobileAuth, register)
+router.post('/login', checkMobileAuth, Login)
+router.post('/varifyOtp', checkMobileAuth, VarifyOtp)
+router.post('/updateUser', checkMobileAuth, updateUser)
+router.post('/GetSingleUser', checkMobileAuth, GetSingleUser)
+router.get('/GetAllUser', checkMobileAuth, GetAllUser)
 module.exports = router;
 
 //login authenticate function
@@ -50,6 +53,30 @@ function register(req, res, next){
         res.status(400).send({status:false,message:"fullname not found!"})
     }
     AuthService.userRegister(req.body)
+    .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Something is incorrect' }))
+    .catch(err => next(err));
+}
+
+function updateUser(req, res, next){
+    if(!req.body.mobile){
+        res.status(400).send({status:false,message:"Mobile number not found!"})
+    }
+    AuthService.updateUser(req.body)
+    .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Something is incorrect' }))
+    .catch(err => next(err));
+}
+
+function GetSingleUser(req, res, next){
+    if(!req.body.mobile){
+        res.status(400).send({status:false,message:"Mobile number not found!"})
+    }
+    AuthService.GetSingleUser(req.body)
+    .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Something is incorrect' }))
+    .catch(err => next(err));
+}
+
+function GetAllUser(req, res, next){
+    AuthService.GetAllUser(req.body)
     .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Something is incorrect' }))
     .catch(err => next(err));
 }

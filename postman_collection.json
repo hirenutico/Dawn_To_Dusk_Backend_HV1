@@ -42,6 +42,105 @@
 			"response": []
 		},
 		{
+			"name": "updateUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullname\": \"hiren joshi\",\n   \"mobile\":\"8460777809\",\n   \"email\":\"hirenjoshi0@gmail.com\"\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/updateUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"updateUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSingleUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"mobile\":\"8460777809\"\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/user/GetSingleUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"GetSingleUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllUser",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/user/GetAllUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"GetAllUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Login",
 			"request": {
 				"method": "POST",
@@ -134,7 +233,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/user/register",
+					"raw": "http://localhost:5000/api/user/addproduct",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -142,8 +241,8 @@
 					"port": "5000",
 					"path": [
 						"api",
-						"user",
-						"register"
+						"menu",
+						"regaddproductister"
 					]
 				}
 			},
