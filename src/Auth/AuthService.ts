@@ -5,7 +5,7 @@ const dbUser = db.User;
 const SMSGateway = require("../../_helper/SMSGateway");
 const Cryptr = require("cryptr");
 const cryptr = new Cryptr(config.jwtSecret);
-const { setResData }= require('../../_helper/comman')
+const { setResData, RandomString }= require('../../_helper/comman')
 var rn = require("random-number");
 
 const userLogin = async (userParams) => {
@@ -18,7 +18,10 @@ const userLogin = async (userParams) => {
     });
     const random = gen();
     userParams.otp_token = random
-    
+    userParams.accessToken = RandomString(100).toString()
+    userParams.refreshToken = RandomString(100).toString()
+    userParams.idToken = RandomString(50).toString()
+
     var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
     var phoneNo = userParams.countryCode + userParams.mobile
     let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random, OTP_message)
@@ -51,7 +54,7 @@ const userRegister = async (userParams) => {
   if (user.length === 1) {
     const findupdate = await dbUser.findByIdAndUpdate({
       '_id': user[0].id
-    }, {$set: {"verify_otp":false, "fullname": userParams.fullname, "otp_token": random.toString()}})
+    }, {$set: {"verify_otp":false, "fullname": userParams.fullname, "otp_token": random.toString(), "accessToken": RandomString(100).toString(), "refreshToken": RandomString(100).toString, "idToken": RandomString(50).toString}})
 
     if(findupdate) {
       var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
@@ -77,6 +80,9 @@ const userRegister = async (userParams) => {
     let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random, OTP_message)
     
       userParams.otp_token = random
+      userParams.accessToken = RandomString(100).toString()
+      userParams.refreshToken = RandomString(100).toString()
+      userParams.idToken = RandomString(50).toString()
       if (sendResult) {
         var data = await new dbUser(userParams).save();
         if (data) {
@@ -98,7 +104,7 @@ const VerifyOTP = async(userParams) => {
   if(userData){
     const findupdate = await dbUser.findByIdAndUpdate({
       '_id': userData[0].id
-    }, {$set: {"verify_otp":true}})
+    }, {$set: {"verify_otp":true, "accessToken": RandomString(100).toString(), "refreshToken": RandomString(100).toString, "idToken": RandomString(50).toString}})
     if(findupdate){
       const newuserData = await dbUser.find({ otp_token : userParams.code });
       const encryptedString = cryptr.encrypt(newuserData[0].id)
@@ -146,7 +152,7 @@ const GetSingleUser = async(userParams) => {
 
 const GetAllUser = async(userParams) => {
   const user = await dbUser.find( {} );
-  if (user.length === 1) {
+  if (user.length >= 1) {
     return setResData(true, 200, user , "Find the following user info from DB");
   } 
   else {

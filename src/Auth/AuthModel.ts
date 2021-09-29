@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
+    accessToken: {type: String, unique: true, required: false},
+    idToken: {type: String, unique: true, required: false},
+    refreshToken: {type: String, unique: true, required: false},
     fullname: {type: String,  required: true},
     email: {type: String, unique: true, required: true},
     mobile: {type: String, unique: true, required: true},

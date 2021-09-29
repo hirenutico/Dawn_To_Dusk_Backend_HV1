@@ -13,6 +13,9 @@ function jwt() {
             '/api/user/GetAllUser',
             '/api/menu/addproduct',
             '/api/menu/getproduct',
+            '/api/address/addaddress',
+            '/api/address/getaddress',
+            '/api/address/getalladdress',
             new RegExp('/resources.*/', 'i')           
         ]
     });

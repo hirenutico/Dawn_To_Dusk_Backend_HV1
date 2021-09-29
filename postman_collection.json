@@ -213,6 +213,105 @@
 			"response": []
 		},
 		{
+			"name": "Add Address",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"address\": \"\", \"location\": \"\", \"lat\": 1.234343, \"long\": 1.23232, \"isDefault\": 1, \"mobile\": \"12343432423\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/address/addaddress",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"address",
+						"addaddress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Address",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"mobile\": \"12343432423\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/address/getaddress",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"address",
+						"getaddress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Address",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/address/getalladdress",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"address",
+						"getalladdress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Add Product",
 			"request": {
 				"method": "POST",

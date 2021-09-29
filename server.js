@@ -13,6 +13,7 @@ app.use(jwt());
 
 app.use('/api/user' ,require('./src/Auth/AuthController'))
 app.use('/api/menu' ,require('./src/Menus/MenuController'))
+app.use('/api/address' ,require('./src/Address/AddressController'))
 
 // global error handler
                                                                                                                                                   
