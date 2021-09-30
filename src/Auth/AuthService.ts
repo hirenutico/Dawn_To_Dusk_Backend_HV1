@@ -24,7 +24,7 @@ const userLogin = async (userParams) => {
 
     var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
     var phoneNo = userParams.countryCode + userParams.mobile
-    let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random, OTP_message)
+    let sendResult = SMSGateway.Send_SMSCountry_gateway(phoneNo, random, OTP_message)
   
     if (sendResult) {
       
@@ -59,7 +59,7 @@ const userRegister = async (userParams) => {
     if(findupdate) {
       var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
       var phoneNo = userParams.countryCode + userParams.mobile
-      let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random, OTP_message)
+      let sendResult = SMSGateway.Send_SMSCountry_gateway(phoneNo, random, OTP_message)
 
       userParams.otp_token = random
 
@@ -77,7 +77,7 @@ const userRegister = async (userParams) => {
   else {
     var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
     var phoneNo = userParams.countryCode + userParams.mobile
-    let sendResult = SMSGateway.SendFactoryOTP(phoneNo, random, OTP_message)
+    let sendResult = SMSGateway.Send_SMSCountry_gateway(phoneNo, random, OTP_message)
     
       userParams.otp_token = random
       userParams.accessToken = RandomString(100).toString()
