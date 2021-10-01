@@ -54,7 +54,7 @@ const userRegister = async (userParams) => {
   if (user.length === 1) {
     const findupdate = await dbUser.findByIdAndUpdate({
       '_id': user[0].id
-    }, {$set: {"verify_otp":false, "fullname": userParams.fullname, "otp_token": random.toString(), "accessToken": RandomString(100).toString(), "refreshToken": RandomString(100).toString, "idToken": RandomString(50).toString}})
+    }, {$set: {"verify_otp":false, "fullname": userParams.fullname, "otp_token": random.toString(), "accessToken": RandomString(100).toString(), "refreshToken": RandomString(100).toString(), "idToken": RandomString(50).toString()}})
 
     if(findupdate) {
       var OTP_message =`Use D2D User verification code is `+random.toString() + 'for the Dawn To Dusk authentication.';
@@ -104,7 +104,7 @@ const VerifyOTP = async(userParams) => {
   if(userData){
     const findupdate = await dbUser.findByIdAndUpdate({
       '_id': userData[0].id
-    }, {$set: {"verify_otp":true, "accessToken": RandomString(100).toString(), "refreshToken": RandomString(100).toString, "idToken": RandomString(50).toString}})
+    }, {$set: {"verify_otp":true, "accessToken": RandomString(100).toString(), "refreshToken": RandomString(100).toString(), "idToken": RandomString(50).toString()}})
     if(findupdate){
       const newuserData = await dbUser.find({ otp_token : userParams.code });
       const encryptedString = cryptr.encrypt(newuserData[0].id)

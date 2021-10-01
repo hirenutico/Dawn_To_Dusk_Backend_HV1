@@ -7,12 +7,11 @@
     "port":"465",
     "jwtSecret":"myTotalySecretKey",
     "api_key": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
-    "2Factory_API_Key": "6cdaebdd-1dd6-11ec-a13b-0200cd936042",
     "SMSCountry_url": "http://www.smscountry.com/SMSCwebservice_Bulk.aspx",
-    "SMSCountry_user": "guadvisors",
-    "SMSCountry_password": "97708701",
-    "SMSCountry_message": "test messgae",
-    "SMSCountry_senderid": "SMSCountry",
+    "SMSCountry_user": "utico",
+    "SMSCountry_password": "utico1234",
+    "SMSCountry_message": " is the OTP to verify your mobile number with Unnathi. Do not share with anyone.",
+    "SMSCountry_senderid": "UNNATH",
     "SMSCountry_messagetype": "N",
     "SMSCountry_DReports": "Y"
 }
