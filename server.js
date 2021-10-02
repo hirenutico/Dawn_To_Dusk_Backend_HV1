@@ -21,9 +21,19 @@ app.use(errorHandler);
 app.use(cors())
 
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) :  5000;
-const serverDomain = '10.12.12.156';
-// app.listen(port, serverDomain);
-const server = app.listen(port, function () {
-    // console.log(`Server listening on Server: ${serverDomain} and port ${port}`);
-    console.log(`Server listening on port ${port}`);
-}); 
+const hostname = '127.0.0.1';
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('NodeJS server running on Shared Hosting\n');
+});
+  
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+});
+
+// // app.listen(port, serverDomain);
+// const server = app.listen(port, function () {
+//     // console.log(`Server listening on Server: ${serverDomain} and port ${port}`);
+//     console.log(`Server listening on port ${port}`);
+// }); 
