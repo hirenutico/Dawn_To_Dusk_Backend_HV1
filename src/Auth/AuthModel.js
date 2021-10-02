@@ -11,7 +11,10 @@ const schema = new Schema({
     countryCode: {type: String, required: true},
     otp_token: {type: Number},
     verify_otp: {type: Boolean, default: false},
-    createddate: {type: Date},
+    created_date: {type: Date, required: true},
+    modified_date: {type: Date, required: true},
+    default_address: {type: Array},
+    default_pay_mode: {type: Array}
 });
 
 schema.set('toJSON', { virtuals: true });

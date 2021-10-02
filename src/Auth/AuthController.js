@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const router = express.Router();
 const {checkMobileAuth} = require('../../middlewares/auth')
-const AuthService = require('./AuthService.ts');
+const AuthService = require('./AuthService.js');
 router.post('/register', checkMobileAuth, register)
 router.post('/login', checkMobileAuth, Login)
 router.post('/varifyOtp', checkMobileAuth, VarifyOtp)

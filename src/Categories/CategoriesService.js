@@ -25,7 +25,7 @@ const getcategory = async (userParams) => {
 };
 
 const deletecategory = async (userParams) => {
-  const demo = await dbUser.deleteOne({  id: userParams.id })
+  const demo = await dbUser.deleteOne({ id: userParams.id })
   if (demo.length == 0) {
     return setResData(true, 200, null , "Selected Category deleted successfully.");
   }
@@ -35,7 +35,7 @@ const deletecategory = async (userParams) => {
 };
 
 const deleteallcategory = async (userParams) => {
-  const demo = await dbUser.deleteMany({ mobile: /^O/ })
+  const demo = await dbUser.deleteMany({ })
   if (demo.length == 0) {
     return setResData(true, 200, null , "All category deleted successfully.");
   }

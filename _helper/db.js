@@ -4,7 +4,7 @@ mongoose.connect(process.env.MONGODB_URI || config.connectionString, { useCreate
 mongoose.Promise = global.Promise;
 mongoose.set('useFindAndModify', false);
 module.exports = {   
-    User : require('../src/Auth/AuthModel.ts'),
+    User : require('../src/Auth/AuthModel.js'),
     Menu : require('../src/Menus/MenuModels.js'),
     Address : require('../src/Address/AddressModels.js'),
     Category: require('../src/Categories/CategoriesModels.js'),

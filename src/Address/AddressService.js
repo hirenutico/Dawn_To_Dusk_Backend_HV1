@@ -9,7 +9,7 @@ const { setResData }= require('../../_helper/comman')
 const addaddress = async (userParams) => {
   var data = await new dbUser(userParams).save();
   if (data) {
-    const add_data = await dbUser.find({mobile: userParams.mobile});
+    const add_data = await dbUser.find({ mobile: userParams.mobile });
     return setResData(true, 200, add_data , "Users address update");
   } else {
     return setResData(false, 400, null , "No address updated or added");
@@ -17,7 +17,7 @@ const addaddress = async (userParams) => {
 };
 
 const getaddress = async (userParams) => {
-  const data = await dbUser.find({mobile: userParams.mobile});
+  const data = await dbUser.find({ mobile: userParams.mobile });
   if (data.length >= 1) {
     return setResData(true, 200, data , "Find Users address list");
   } else {
@@ -26,7 +26,7 @@ const getaddress = async (userParams) => {
 };
 
 const getalladdress = async (userParams) => {
-  const data = await dbUser.find({});
+  const data = await dbUser.find({ });
   if (data.length >= 1) {
     return setResData(true, 200, data , "Find Users address list");
   } else {
@@ -35,7 +35,7 @@ const getalladdress = async (userParams) => {
 };
 
 const deleteaddress = async (userParams) => {
-  const demo = await dbUser.deleteOne({  mobile: userParams.mobile })
+  const demo = await dbUser.deleteOne({ mobile: userParams.mobile })
   if (demo.length == 0) {
     return setResData(true, 200, null , "Selected Address deleted successfully.");
   }
@@ -45,7 +45,7 @@ const deleteaddress = async (userParams) => {
 };
 
 const deletealladdress = async (userParams) => {
-  const demo = await dbUser.deleteMany({ mobile: /^O/ })
+  const demo = await dbUser.deleteMany({ })
   if (demo.length == 0) {
     return setResData(true, 200, null , "All address deleted successfully.");
   }
