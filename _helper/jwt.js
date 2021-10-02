@@ -11,11 +11,15 @@ function jwt() {
             '/api/user/updateUser',
             '/api/user/GetSingleUser',
             '/api/user/GetAllUser',
+            '/api/user/DeleteSingleUser',
+            '/api/user/DeleteAllUser',
             '/api/menu/addproduct',
             '/api/menu/getproduct',
             '/api/address/addaddress',
             '/api/address/getaddress',
             '/api/address/getalladdress',
+            '/api/address/deleteaddress',
+            '/api/address/deletealladdress',
             new RegExp('/resources.*/', 'i')           
         ]
     });

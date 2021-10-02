@@ -160,6 +160,26 @@ const GetAllUser = async(userParams) => {
   }
 }
 
+const DeleteSingleUser = async(userParams) => {
+  const user = await dbUser.deleteOne({  mobile: userParams.mobile })
+  if (user.length === 1) {
+    return setResData(true, 200, null , "User profile deleted successfully");
+  } 
+  else {
+    return setResData(false, 401, null , "The Mobile no is not registerd yet!")
+  }
+}
+
+const DeleteAllUser = async(userParams) => {
+  const user = await dbUser.deleteMany({ mobile: /^O/ })
+  if (user.length >= 1) {
+    return setResData(true, 200, null , "All user info deleted successfully from DB");
+  } 
+  else {
+    return setResData(false, 401, null , "No user Registered yet!")
+  }
+}
+
 module.exports = {
   userRegister,
   VerifyOTP,
@@ -167,4 +187,6 @@ module.exports = {
   updateUser,
   GetSingleUser,
   GetAllUser,
+  DeleteSingleUser,
+  DeleteAllUser,
 };

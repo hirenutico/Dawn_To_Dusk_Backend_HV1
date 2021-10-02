@@ -34,8 +34,30 @@ const getalladdress = async (userParams) => {
   }
 };
 
+const deleteaddress = async (userParams) => {
+  const demo = await dbUser.deleteOne({  mobile: userParams.mobile })
+  if (demo.length == 0) {
+    return setResData(true, 200, null , "Selected Address deleted successfully.");
+  }
+  else {
+    return setResData(false, 401, null , "No address found yet!")
+  }
+};
+
+const deletealladdress = async (userParams) => {
+  const demo = await dbUser.deleteMany({ mobile: /^O/ })
+  if (demo.length == 0) {
+    return setResData(true, 200, null , "All address deleted successfully.");
+  }
+  else {
+    return setResData(false, 401, null , "No address found yet!")
+  }
+};
+
 module.exports = {
   addaddress,
   getaddress,
   getalladdress,
+  deleteaddress,
+  deletealladdress,
 };

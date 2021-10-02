@@ -5,6 +5,8 @@ const {checkMobileAuth} = require('../../middlewares/auth')
 router.post('/addaddress', checkMobileAuth, addaddress)
 router.post('/getaddress', checkMobileAuth, getaddress)
 router.get('/getalladdress', checkMobileAuth, getalladdress)
+router.delete('/deleteaddress', checkMobileAuth, deleteaddress)
+router.delete('/deletealladdress', checkMobileAuth, deletealladdress)
 module.exports = router;
 
 function addaddress(req, res, next){
@@ -39,6 +41,21 @@ function getaddress(req, res, next){
 
 function getalladdress(req, res, next){
     AddressService.getalladdress(req.body)
+    .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Data is incorrect' }))
+    .catch(err => next(err));
+}
+
+function deleteaddress(req, res, next){
+    if(!req.body.mobile){
+        res.status(400).send({status:false, message:"mobile field not found!"})
+    }
+    AddressService.deleteaddress(req.body)
+    .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Data is incorrect' }))
+    .catch(err => next(err));
+}
+
+function deletealladdress(req, res, next){
+    AddressService.deletealladdress(req.body)
     .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Data is incorrect' }))
     .catch(err => next(err));
 }
