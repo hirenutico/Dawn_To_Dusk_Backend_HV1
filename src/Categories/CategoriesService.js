@@ -1,13 +1,13 @@
 const config = require('../../config.json');
 const jwt = require("jsonwebtoken");
 const db = require("../../_helper/db");
-const dbUser = db.Category;
+const dbCat = db.Category;
 const Cryptr = require("cryptr");
 const cryptr = new Cryptr(config.jwtSecret);
 const { setResData }= require('../../_helper/comman')
 
 const addcategory = async (userParams) => {
-  var data = await new dbUser(userParams).save();
+  var data = await new dbCat(userParams).save();
   if (data) {
     return setResData(true, 200, null , "Category added successfully");
   } else {
@@ -16,8 +16,8 @@ const addcategory = async (userParams) => {
 };
 
 const getcategory = async (userParams) => {
-  const data = await dbUser.find({ });
-  if (data.length === 1) {
+  const data = await dbCat.find({ });
+  if (data.length >= 1) {
     return setResData(true, 200, data , "Get all Category.");
   } else {
     return setResData(false, 401, null , "email is not registerd yet!")
@@ -25,8 +25,9 @@ const getcategory = async (userParams) => {
 };
 
 const deletecategory = async (userParams) => {
-  const demo = await dbUser.deleteOne({ id: userParams.id })
-  if (demo.length == 0) {
+  const data = await dbCat.findByIdAndDelete({"_id": userParams.id})
+  console.log(data)
+  if (data.length >= 1) {
     return setResData(true, 200, null , "Selected Category deleted successfully.");
   }
   else {
@@ -35,12 +36,12 @@ const deletecategory = async (userParams) => {
 };
 
 const deleteallcategory = async (userParams) => {
-  const demo = await dbUser.deleteMany({ })
-  if (demo.length == 0) {
-    return setResData(true, 200, null , "All category deleted successfully.");
-  }
+  const data = await dbCat.deleteMany({ })
+  if (data.length >= 1) {
+    return setResData(true, 200, null , "All user info deleted successfully from DB");
+  } 
   else {
-    return setResData(false, 401, null , "No address found yet!")
+    return setResData(false, 401, null , "No user Registered yet!")
   }
 };
 

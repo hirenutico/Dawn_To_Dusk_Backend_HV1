@@ -29,11 +29,11 @@ const Send_SMSCountry_gateway = async (to_phone, OTP, message) => {
     }).then(res => {
         console.log(res.data)
         if (res.data === "Success") {
-            // console.log("success")
+            console.log("success")
             return true
         }
         else {
-            // console.log("faild")
+            console.log("faild")
             return false
         }
     }).catch(err => {

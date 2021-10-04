@@ -115,7 +115,8 @@ const VerifyOTP = async(userParams) => {
       "accessToken": token, 
       "refreshToken": RandomString(100).toString(), 
       "idToken": RandomString(50).toString(),
-      "modified_date": Co_date
+      "modified_date": Co_date,
+      "default_address": await Default_Address.GetDefaultAddressInfoFromDB(userParams)
     }})
     if(findupdate) {
       findupdate.default_address = await Default_Address.GetDefaultAddressInfoFromDB(userParams)

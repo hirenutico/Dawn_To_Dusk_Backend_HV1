@@ -1,351 +1,565 @@
 {
 	"info": {
-		"_postman_id": "54ed6cee-c111-47af-a777-d27245615190",
-		"name": "demo",
+		"_postman_id": "c6c5cfe7-611b-4a66-b3e4-81de1bec75b8",
+		"name": "Dawn2Dusk",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Register",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"fullname\": \"hiren joshi\",\n    \"email\":\"hirenjoshi0@gmail.com\",\n    \"mobile\":\"8460777809\",\n    \"countryCode\":\"91\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Login Modules",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\": \"hiren joshi\",\n    \"email\":\"hirenjoshi0@gmail.com\",\n    \"mobile\":\"8460777809\",\n    \"countryCode\":\"91\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/user/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "updateUser",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"fullname\": \"hiren joshi\",\n   \"mobile\":\"8460777809\",\n   \"email\":\"hirenjoshi0@gmail.com\"\n }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"hirenjoshi6@gmail.com\",\n    \"mobile\":\"8460777809\",\n    \"countryCode\":\"91\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/user/updateUser",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"updateUser"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetSingleUser",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"mobile\":\"8460777809\"\n }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "varifyOtp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\":\"175337\",\n    \"mobile\":\"8460777809\",\n    \"countryCode\":\"91\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/varifyOtp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"varifyOtp"
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/user/GetSingleUser",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"GetSingleUser"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "GetAllUser",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:5000/api/user/GetAllUser",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"GetAllUser"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"email\":\"hirenjoshi6@gmail.com\",\n    \"mobile\":\"8460777809\",\n    \"countryCode\":\"91\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "User Profile Modules",
+			"item": [
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\": \"hiren joshi\",\n   \"mobile\":\"8460777809\",\n   \"email\":\"hirenjoshi0@gmail.com\"\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/updateUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"updateUser"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/user/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "varifyOtp",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"code\":\"175337\",\n    \"mobile\":\"8460777809\",\n    \"countryCode\":\"91\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "GetSingleUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"mobile\":\"8460777809\"\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/GetSingleUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"GetSingleUser"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/user/varifyOtp",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"varifyOtp"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Add Address",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"address\": \"\", \"location\": \"\", \"lat\": 1.234343, \"long\": 1.23232, \"isDefault\": 1, \"mobile\": \"12343432423\"}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "GetAllUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/user/GetAllUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"GetAllUser"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/address/addaddress",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"address",
-						"addaddress"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Address",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"mobile\": \"12343432423\"}",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "DeleteSingleUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"mobile\":\"8460777809\"\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/DeleteSingleUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"DeleteSingleUser"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/address/getaddress",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"address",
-						"getaddress"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get All Address",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:5000/api/address/getalladdress",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"address",
-						"getalladdress"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Add Product",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"foodname\": \"prasanna\", \"categoryname\": \"Order\", \"subcategoryname\": \"Eggs\", \"vegnonveg\": \"Veg\", \"foodquantity\": 1, \"price\": 200, \"desc\": \"fsajhflkjsdhafjhsdakfhdlsak\" }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "DeleteAllUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/user/DeleteAllUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"DeleteAllUser"
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/user/addproduct",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"menu",
-						"regaddproductister"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Address modules",
+			"item": [
+				{
+					"name": "Add Address",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"address\": \"\", \"location\": \"\", \"lat\": 1.234343, \"long\": 1.23232, \"isDefault\": 1, \"mobile\": \"12343432423\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/address/addaddress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"address",
+								"addaddress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Address",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mobile\": \"12343432423\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/address/getaddress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"address",
+								"getaddress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Address",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/address/getalladdress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"address",
+								"getalladdress"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Menus",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"foodname\": \"prasanna\", \"categoryname\": \"Order\", \"subcategoryname\": \"Eggs\", \"vegnonveg\": \"Veg\", \"foodquantity\": 1, \"price\": 200, \"desc\": \"fsajhflkjsdhafjhsdakfhdlsak\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/menu/addproduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"menu",
+								"addproduct"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category Modules",
+			"item": [
+				{
+					"name": "Add Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"categoryname\": \"Order\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/category/addcategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"category",
+								"addcategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/category/getcategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"category",
+								"getcategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": 1200}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/category/deletecategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"category",
+								"deletecategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All Category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/category/deleteallcategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"category",
+								"deleteallcategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

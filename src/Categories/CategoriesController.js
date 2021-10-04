@@ -13,14 +13,28 @@ function addcategory(req, res, next){
         res.status(400).send({status:false, message:"CategoryName not found!"})
     }
     console.log(`Server listening on port ${req.body}`);
-    CategoriesService.addproduct(req.body)
+    CategoriesService.addcategory(req.body)
     .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Data is incorrect' }))
     .catch(err => next(err));
 }
 
-function getproduct(req, res, next){
+function getcategory(req, res, next){
     console.log(`Server listening on port ${req.body}`);
-    CategoriesService.getproduct(req.body)
+    CategoriesService.getcategory(req.body)
+    .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Data is incorrect' }))
+    .catch(err => next(err));
+}
+
+function deletecategory(req, res, next){
+    console.log(`Server listening on port ${req.body}`);
+    CategoriesService.deletecategory(req.body)
+    .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Data is incorrect' }))
+    .catch(err => next(err));
+}
+
+function deleteallcategory(req, res, next){
+    console.log(`Server listening on port ${req.body}`);
+    CategoriesService.deleteallcategory(req.body)
     .then(user => user ? res.send(user) : res.status(400).send({status:false ,message: 'Data is incorrect' }))
     .catch(err => next(err));
 }
