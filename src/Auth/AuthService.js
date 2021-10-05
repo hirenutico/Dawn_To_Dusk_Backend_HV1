@@ -142,7 +142,7 @@ const updateUser = async(userParams) => {
       "email": userParams.email,
       "modified_date": Co_date
     }})
-    if (findupdate.length === 1) {
+    if (findupdate.length >= 1) {
       return setResData(true, 200, findupdate , "User profile updated successfully");
     }
     else {

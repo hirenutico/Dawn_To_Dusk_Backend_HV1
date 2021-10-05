@@ -386,6 +386,69 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Delete Address",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": 1200}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/address/deleteaddress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"address",
+								"deleteaddress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All Address",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "JPcopEq16fyQGjnzY3QXVDnGDZrgQAs1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/address/deletealladdress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"address",
+								"deletealladdress"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
